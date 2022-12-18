@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>BrainZ - MaxDev</title>
+    <script>
+        // function loadBoardPos() {
+        //     var data = localStorage.getItem("board");
+        //     if (data == null) return;
+        //     var pos = JSON.parse(data);
+        //     let root = document.documentElement;
+        //     root.style.setProperty('--defX', pos.left);
+        //     root.style.setProperty('--defY', pos.top);
+        // }
+        // loadBoardPos();
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="text-light">
+            BrainZ
+            <pre>Path F!nd!ng</pre>
+        </h1>
+        <a href="https://github.com/D3R50N" target="_blank">
+            <h3 class="text-light">
+                Max Dev ◹
+            </h3>
+            <img src="img/logo.png" alt="">
+        </a>
+    </div>
+    
+    <div class="board" id="board">
+        <div class="board-header">
+            <button id="find_path_btn">Find path</button>
+            <button id="disable_hover_btn">Disable hover</button>
+            <button id="custom_grid_btn">Custom grid</button>
+            <button id="clear_grid_btn">Clear grid</button>
+        </div>
+        <div class="board-content">
+
+        </div>
+    </div>
+
+    <script src="lib/brain.min.js"></script>
+
+    <script src="src/neural network/utils.js"></script>
+    <script src="src/neural network/data.model.js"></script>
+    <script src="src/neural network/config.js"></script>
+
+    <script src="src/canvas/utils.js"></script>
+    <script src="src/canvas/globals.js"></script>
+    <script src="src/canvas/events.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
