@@ -13,5 +13,5 @@ for (let index = 0; index < 20; index++) {
 }
 network.train(training_data);
 var test = network.run([0, 0, 11, 10]);
-debug.table(training_data)
-debug.info(predictedKey(test));
+// debug.table(training_data)
+// debug.info(predictedKey(test));
