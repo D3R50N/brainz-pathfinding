@@ -37,6 +37,12 @@ disable_hover_btn.addEventListener('click', e => {
     disable_hover_btn.innerText = hover_disabled ? "Enable hover" : "Disable hover";
 })
 
+find_path_btn.addEventListener('click', e => {
+    is_finding_path = !is_finding_path;
+    find_path_btn.innerText = !is_finding_path ? "Find path" : "Stop finding";
+})
+
+
 
 ///NOTE - Canvas events
 overlay_cv.addEventListener('mousedown', e => {
@@ -50,7 +56,10 @@ overlay_cv.addEventListener('mouseup', e => {
     is_mouse_left_down = false;
     is_mouse_right_down = false;
 });
+overlay_cv.addEventListener('mouseout', e => {
+       clearCanvas(overlay_cx)
 
+});
 overlay_cv.addEventListener('mousemove', e => {
     if (hover_disabled) return;
     const x = Math.floor(e.offsetX / grid.x_length);

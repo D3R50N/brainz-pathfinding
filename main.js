@@ -6,34 +6,15 @@ function main() {
     }
 
     drawGrid();
+    if (move_step >= step_before_move)
         move();
-    // requestAnimationFrame(main);
+    move_step++;
+    requestAnimationFrame(main);
 }
-
-setInterval(main, 1000 / 2);
+main()
 
 loadSizeFromStorage();
 loadElementFromStorage();
 debug.log(start);
 debug.log(end);
 
-function move() {
-    let distances = getDistances();
-debug.info(predictedKey(network.run(distances)))
-    switch (predictedKey(network.run(distances))) {
-        case "up":
-            start.y--;
-            break;
-        case "down":
-            start.y++;
-            break;
-        case "left":
-            start.x--;
-            break;
-        case "right":
-            start.x++;
-
-        default:
-            break;
-    }
-}

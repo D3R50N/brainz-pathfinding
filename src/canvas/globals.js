@@ -51,5 +51,12 @@ var is_mouse_right_down = false;
 var hover_disabled = false;
 var is_finding_path = false;
 
+var move_step = 0;
+var step_before_move = 20;
+
 var start = {};
 var end = {};
+
+var last_pos = {
+
+}

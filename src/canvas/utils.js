@@ -34,6 +34,32 @@ function rect(x, y, color) {
     cx.fillStyle = color;
     cx.fillRect(x * grid.x_length, y * grid.y_length, grid.x_length, grid.y_length);
 }
+
+function move() {
+    if (!is_finding_path) return;
+    let distances = getDistances();
+    debug.info(predictedKey(network.run(distances)))
+    last_pos.x = start.x;
+    last_pos.y = start.y;
+    switch (predictedKey(network.run(distances))) {
+        case "up":
+            start.y -= start.y == 0 ? 0 : 1;
+            break;
+        case "down":
+            start.y += start.y == size.h - 1 ? 0 : 1;
+            break;
+        case "left":
+            start.x -= start.x == 0 ? 0 : 1;
+            break;
+        case "right":
+            start.x += start.x == size.w - 1 ? 0 : 1;
+
+        default:
+            break;
+    }
+
+    move_step = 0;
+}
 ///NOTE - Grid elements functions
 
 function alreadyInGrid(x, y) {
@@ -165,6 +191,7 @@ function getDistances() {
         size.w - start.x - 1,
         start.y,
         size.h - start.y - 1,
+        getLastPosDir(),
     ]
 
     let mindistances = distances;
@@ -197,6 +224,14 @@ function getDistances() {
 
 
     return distances;
+}
+
+function getLastPosDir() {
+    if (start.x > last_pos.x) return LEFT;
+    if (start.x < last_pos.x) return RIGHT;
+    if (start.y > last_pos.y) return UP;
+    if (start.y < last_pos.y) return DOWN;
+    return -1;
 }
 
 function getElementsInSameRow(pos) {
